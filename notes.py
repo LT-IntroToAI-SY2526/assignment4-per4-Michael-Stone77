@@ -12,7 +12,7 @@ class Dog:
         name - the name of the dog
         age - the age of the dog
     """""
-    def __init__(self, breed, fur_color, name, age):
+    def __init__(self, breed = "dog", fur_color = "black", name = "no_name", age = "1"):
         """"Initialize a new dog with breed, fur_color, name, and age"""
         self.breed = breed
         self.fur_color = fur_color
@@ -27,13 +27,34 @@ class Dog:
     def bark(self):
         return f"{self.name} says woof, woof!!"
 
+    def birthday(self):
+        """celebrate the dog's brithday"""
+        self.age += 1
+        print(f"{self.name} is celebrating their {self.age} brithday")
+
+    def paint_dog(self, new_color):
+        """Change the fur_color of the dog"""
+        old_color = self.fur_color
+        self.fur_color = new_color
+        print(f"{self.name} changed their fur_color from {old_color} to {self.fur_color}")
+
 if __name__ == "__main__":
     berg_dog = Dog("labrador", "black", "logan", 9)
     aidan_dog = Dog("lab pitt mix", "gray", "cubbie", 9)
+    default_dog = Dog()
+    matthew_dog  = Dog(breed="labrador", name="Bella", age=1)
 
     print(berg_dog)
     print(aidan_dog)
+    print(default_dog)
+    print(matthew_dog)
 
     print()
 
     print(aidan_dog.bark())
+    matthew_dog.birthday()
+    berg_dog.paint_dog("neon green")
+
+    print()
+
+    print(berg_dog)
